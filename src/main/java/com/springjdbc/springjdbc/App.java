@@ -36,22 +36,30 @@ public class App
         
         Particles particle = new Particles();
         
-        particle.setPartId(5);
-        particle.setPartName("testing new 1");
-        particle.setPartDescription("its a new test");
-        particle.setPrice(5);
-        particle.setDateStart("2025-02-12");
-        particle.setVendorId(5);
-        
-        int result = pd.insert(particle);
-        
-        
-        
-        System.out.println(result);
-        
+//        particle.setPartId(5);
+//        particle.setPartName("testing new 1");
+//        particle.setPartDescription("its a new test");
+//        particle.setPrice(5);
+//        particle.setDateStart("2025-02-12");
+//        particle.setVendorId(5);
+//        
+//        int result = pd.insert(particle);
+//        
+//        
+//        
+//        System.out.println(result);
+//        
         // inserted data to entity class using getbean and then retrieved data at data dao layer then 
         // inserted into query using update method and then fired query using jdbc template 
         // which opens connection, fires the query and closes the connection.
         
+        
+        particle.setPartId(4);
+        particle.setPartName("new Sample");
+        particle.setPartDescription("Testing the update query");
+        
+        int result = pd.update(particle);
+        
+        System.out.println(result);
     }
 }

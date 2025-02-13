@@ -31,5 +31,14 @@ public class ParticlesImpl implements ParticlesDao{
 		
 		return result;
 	}
+	
+	public int update(Particles particle) {
+		
+		String query = "Update Particles set PartName=?, PartDescription=? where PartID=?";
+		
+		int result = template.update(query, particle.getPartName(), particle.getPartDescription(), particle.getPartId());
+		
+		return result;
+	}
 
 }
