@@ -19,6 +19,14 @@
   <ref bean="datasource"/>
   </property>
   </bean>
+  
+  <!-- As we declared a new Dao layer and it has a jdbc property we have created a new bean to use jdbc template  -->
+  
+  <bean class="com.springjdbc.dao.ParticlesImpl" name="particlesImpl">
+  <property name="template"> 
+  <ref bean="jdbcTemplate"/>
+  </property>
+  </bean>
 
 	</beans>
 
