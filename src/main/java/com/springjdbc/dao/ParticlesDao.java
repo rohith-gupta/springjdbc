@@ -7,5 +7,7 @@ public interface ParticlesDao {
 	public int insert(Particles particle);
 	
 	public int update(Particles particle);
+	
+	public int delete(Particles particle);
 
 }

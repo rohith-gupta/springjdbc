@@ -40,5 +40,16 @@ public class ParticlesImpl implements ParticlesDao{
 		
 		return result;
 	}
+	
+	public int delete(Particles particle) {
+		
+		String query = "DELETE FROM Particles WHERE PartID =?";
+		
+		int result = template.update(query, particle.getPartId());
+		
+		return result;
+
+		
+	}
 
 }

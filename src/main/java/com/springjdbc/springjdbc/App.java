@@ -54,11 +54,20 @@ public class App
         // which opens connection, fires the query and closes the connection.
         
         
-        particle.setPartId(4);
-        particle.setPartName("new Sample");
-        particle.setPartDescription("Testing the update query");
+        // below is for update query
+//        particle.setPartId(4);
+//        particle.setPartName("new Sample");
+//        particle.setPartDescription("Testing the update query");
+//        
+//        int result = pd.update(particle);
+//        
+//        System.out.println(result);
         
-        int result = pd.update(particle);
+        
+        // below is for delete query
+        particle.setPartId(3);
+        
+        int result = pd.delete(particle);
         
         System.out.println(result);
     }
