@@ -65,10 +65,22 @@ public class App
         
         
         // below is for delete query
-        particle.setPartId(3);
+//        particle.setPartId(3);
+//        
+//        int result = pd.delete(particle);
+//        
+//        System.out.println(result);
         
-        int result = pd.delete(particle);
+        particle = pd.getonerow(5);
         
-        System.out.println(result);
+        System.out.println(particle);
+        
+        // to fetch the single row we need to use queryforobject method from jdbc template then we need to pass reference of rowmapper class to the template argument
+        // to pass the reference of rowmapper we need to create an implementation class for rowmapper interface then we need to
+        // insert the data using resultset by creating the entity object.
+        
+        particle = pd.getonerow("sample2");
+        
+        System.out.println(particle);
     }
 }

@@ -35,6 +35,11 @@ public class Particles {
 	public String getDateStart() {
 		return dateStart;
 	}
+	@Override
+	public String toString() {
+		return "Particles [partId=" + partId + ", partName=" + partName + ", partDescription=" + partDescription
+				+ ", price=" + price + ", dateStart=" + dateStart + ", vendorId=" + vendorId + "]";
+	}
 	public void setDateStart(String dateStart) {
 		this.dateStart = dateStart;
 	}
@@ -55,6 +60,7 @@ public class Particles {
 		this.dateStart = dateStart;
 		this.vendorId = vendorId;
 	}
+	
 	public Particles() {
 		super();
 		// TODO Auto-generated constructor stub

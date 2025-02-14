@@ -9,5 +9,9 @@ public interface ParticlesDao {
 	public int update(Particles particle);
 	
 	public int delete(Particles particle);
+	
+	public Particles getonerow(int partID);
+	
+	public Particles getonerow(String partName);
 
 }

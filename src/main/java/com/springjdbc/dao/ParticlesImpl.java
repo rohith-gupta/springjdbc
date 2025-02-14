@@ -1,6 +1,7 @@
 package com.springjdbc.dao;
 
 import org.springframework.jdbc.core.JdbcTemplate;
+import org.springframework.jdbc.core.RowMapper;
 
 import com.springjdbc.entities.Particles;
 
@@ -22,7 +23,6 @@ public class ParticlesImpl implements ParticlesDao{
 
 
 
-	@Override
 	public int insert(Particles particle) {
 		
 		String query = "INSERT INTO Particles(PartID, PartName, PartDescription, Price, DateStart, VendorID) VALUES(?, ?, ?, ?, ?, ?)";
@@ -49,7 +49,28 @@ public class ParticlesImpl implements ParticlesDao{
 		
 		return result;
 
-		
 	}
+
+	public Particles getonerow(int partID) {
+		
+		String query = "Select * from Particles where PartID=?";
+		RowMapper<Particles> rm = (RowMapper<Particles>) new RowImpl();
+		Particles p = template.queryForObject(query, rm, partID);
+		return p;
+	}
+
+
+
+	@Override
+	public Particles getonerow(String partName) {
+		String query = "Select * from Particles where PartName=?";
+		RowMapper<Particles> rm = (RowMapper<Particles>) new RowImpl();
+		Particles p = template.queryForObject(query, rm, partName);
+		return p;
+	}
+	
+	
+	
+	
 
 }
