@@ -1,5 +1,7 @@
 package com.springjdbc.dao;
 
+import java.util.List;
+
 import com.springjdbc.entities.Particles;
 
 public interface ParticlesDao {
@@ -13,5 +15,7 @@ public interface ParticlesDao {
 	public Particles getonerow(int partID);
 	
 	public Particles getonerow(String partName);
+	
+	public List<Particles> getAllrows();
 
 }

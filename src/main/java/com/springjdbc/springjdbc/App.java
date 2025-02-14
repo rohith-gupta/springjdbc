@@ -1,5 +1,7 @@
 package com.springjdbc.springjdbc;
 
+import java.util.List;
+
 import org.springframework.context.ApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
@@ -71,16 +73,23 @@ public class App
 //        
 //        System.out.println(result);
         
-        particle = pd.getonerow(5);
-        
-        System.out.println(particle);
+//        particle = pd.getonerow(5);
+//        
+//        System.out.println(particle);
         
         // to fetch the single row we need to use queryforobject method from jdbc template then we need to pass reference of rowmapper class to the template argument
         // to pass the reference of rowmapper we need to create an implementation class for rowmapper interface then we need to
         // insert the data using resultset by creating the entity object.
         
-        particle = pd.getonerow("sample2");
+//        particle = pd.getonerow("sample2");
+//        
+//        System.out.println(particle);
         
-        System.out.println(particle);
+        List<Particles> particles = pd.getAllrows();
+        
+        for(Particles p: particles)
+        {
+        	System.out.println(p);
+        }
     }
 }
