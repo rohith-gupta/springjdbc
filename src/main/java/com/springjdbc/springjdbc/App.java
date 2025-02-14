@@ -3,6 +3,7 @@ package com.springjdbc.springjdbc;
 import java.util.List;
 
 import org.springframework.context.ApplicationContext;
+import org.springframework.context.annotation.AnnotationConfigApplicationContext;
 import org.springframework.context.support.ClassPathXmlApplicationContext;
 import org.springframework.jdbc.core.JdbcTemplate;
 
@@ -22,7 +23,7 @@ public class App
         
         
         
-        ApplicationContext context = new ClassPathXmlApplicationContext("com/springjdbc/springjdbc/config.xml");
+        ApplicationContext context = new AnnotationConfigApplicationContext(Config.class);
         
         //JdbcTemplate temp = (JdbcTemplate) context.getBean("jdbcTemplate");
         
