@@ -1,5 +1,8 @@
 package com.springjdbc.dao;
 
+import java.sql.ResultSet;
+import java.sql.SQLException;
+
 import org.springframework.jdbc.core.JdbcTemplate;
 import org.springframework.jdbc.core.RowMapper;
 
@@ -54,8 +57,25 @@ public class ParticlesImpl implements ParticlesDao{
 	public Particles getonerow(int partID) {
 		
 		String query = "Select * from Particles where PartID=?";
-		RowMapper<Particles> rm = (RowMapper<Particles>) new RowImpl();
-		Particles p = template.queryForObject(query, rm, partID);
+		Particles p = template.queryForObject(query, new RowMapper<Particles>() {
+
+			@Override
+			public Particles mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Particles p = new Particles();
+				
+				p.setPartId(rs.getInt(1));
+				p.setPartName(rs.getString(2));
+				p.setPartDescription(rs.getString(3));
+				p.setPrice(rs.getFloat(4));
+				p.setDateStart(rs.getString(5));
+				p.setVendorId(rs.getInt(6));
+				
+				
+				return p;
+			}
+			
+			
+		}, partID);
 		return p;
 	}
 
@@ -64,8 +84,25 @@ public class ParticlesImpl implements ParticlesDao{
 	@Override
 	public Particles getonerow(String partName) {
 		String query = "Select * from Particles where PartName=?";
-		RowMapper<Particles> rm = (RowMapper<Particles>) new RowImpl();
-		Particles p = template.queryForObject(query, rm, partName);
+		Particles p = template.queryForObject(query, new RowMapper<Particles>() {
+
+			@Override
+			public Particles mapRow(ResultSet rs, int rowNum) throws SQLException {
+				Particles p = new Particles();
+				
+				p.setPartId(rs.getInt(1));
+				p.setPartName(rs.getString(2));
+				p.setPartDescription(rs.getString(3));
+				p.setPrice(rs.getFloat(4));
+				p.setDateStart(rs.getString(5));
+				p.setVendorId(rs.getInt(6));
+				
+				
+				return p;
+			}
+			
+			
+		} , partName);
 		return p;
 	}
 	
